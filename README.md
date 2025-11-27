@@ -56,29 +56,6 @@ Covers:
 
 ---
 
-## 📁 Project Structure
-
-langgraph-weather-rag/
-├─ src/
-│ ├─ init.py
-│ ├─ pipeline.py
-│ ├─ weather.py
-│ ├─ pdf_rag.py
-│ ├─ llm_utils.py
-│ ├─ qdrant_utils.py
-│ ├─ langsmith_eval.py
-│ └─ streamlit_app.py
-├─ tests/
-│ ├─ test_weather.py
-│ ├─ test_pdf_rag.py
-│ └─ test_pipeline_decision.py
-├─ sample_data/
-│ └─ sample_doc.pdf
-├─ requirements.txt
-└─ README.md
-
----
-
 ## 🔧 Installation
 
 ### 1. Clone the Repo
