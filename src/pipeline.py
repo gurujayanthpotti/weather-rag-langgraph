@@ -1,4 +1,3 @@
-# src/pipeline.py
 
 from typing import Dict, List
 from weather import fetch_weather, format_weather_summary

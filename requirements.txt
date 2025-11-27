@@ -13,3 +13,4 @@ python-dotenv
 qdrant-client
 langchain-core
 langchain-openai
+langchain_text_splitters
