@@ -81,4 +81,26 @@ pip install -r requirements.txt
 ### Start Streamlit UI
 streamlit run src/streamlit_app.py
 
+---
+### LangSmith logs/screenshots
+
+<img width="1100" height="558" alt="image" src="https://github.com/user-attachments/assets/f885b0fd-43e5-4cfd-a71b-1e8e9fadefe3" />
+
+<img width="1100" height="561" alt="image" src="https://github.com/user-attachments/assets/4685524b-f0ab-418a-a494-63c25008563b" />
+
+ ###Comparing results
+
+ <img width="1100" height="561" alt="image" src="https://github.com/user-attachments/assets/f23eb0c5-6bef-4683-8162-371ba46c6d32" />
+
+ ### Track results over time
+<img width="1100" height="562" alt="image" src="https://github.com/user-attachments/assets/fca2d20e-ae53-491c-970a-9b6262160d1e" />
+
+---
+
+### Streamlit app screenshots
+<img width="2859" height="1524" alt="image" src="https://github.com/user-attachments/assets/b6eb07b7-3e6c-44b3-93ef-70d004395655" />
+### Response from chatbot
+<img width="2879" height="1693" alt="image" src="https://github.com/user-attachments/assets/db6c4e90-cd9a-4a55-8a1d-8cfe03023c68" />
+
+
 
