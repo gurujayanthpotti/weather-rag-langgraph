@@ -86,18 +86,19 @@ langgraph-weather-rag/
 git clone https://github.com/<your-username>/langgraph-weather-rag.git
 cd langgraph-weather-rag 
 
-###2. Create Virtual Environment
+### 2. Create Virtual Environment
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
 
-###3. Install Dependencies
+### 3. Install Dependencies
 pip install -r requirements.txt
 
+--- 
 
-###Running the Pipeline
-####Start Streamlit UI
+### Running the Pipeline
+#### Start Streamlit UI
 streamlit run src/streamlit_app.py
 
-###🎥 Streamlit Demo Video
-###📌 Loom demo link (replace with your actual link):
+### 🎥 Streamlit Demo Video
+### 📌 Loom demo link (replace with your actual link):
 https://www.loom.com/share/04c805ac18944ab7859fd7ad80dc7cfb
