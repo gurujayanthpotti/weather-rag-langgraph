@@ -2,8 +2,8 @@ import os
 import time
 import streamlit as st
 from dotenv import load_dotenv
-from src.graph import build_pipeline_graph
-from src.pdf_rag import build_embeddings_and_upsert
+from graph import build_pipeline_graph
+from pdf_rag import build_embeddings_and_upsert
 
 # ------------------- Load .env and Setup LangSmith -------------------
 load_dotenv()  # Load environment variables first

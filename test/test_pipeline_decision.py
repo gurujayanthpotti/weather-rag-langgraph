@@ -1,4 +1,4 @@
-from src.pipeline import decide_action, extract_city, build_guardrailed_prompt
+from pipeline import decide_action, extract_city, build_guardrailed_prompt
 
 def test_decide_action_weather():
     assert decide_action("What is the weather in Mumbai?") == "weather"

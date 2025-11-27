@@ -1,6 +1,6 @@
 # tests/test_pdf_rag.py
 import pytest
-from src.pdf_rag import chunk_text, extract_text_from_pdf
+from pdf_rag import chunk_text, extract_text_from_pdf
 
 def test_chunk_text_small():
     text = "A" * 500

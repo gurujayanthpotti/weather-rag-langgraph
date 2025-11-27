@@ -1,6 +1,6 @@
 from langgraph.graph import END, StateGraph
 from typing import TypedDict
-from src.pipeline import decide_action, weather_node, rag_node
+from pipeline import decide_action, weather_node, rag_node
 
 # Correct State definition
 class PipelineState(TypedDict):

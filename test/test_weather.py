@@ -1,6 +1,6 @@
 # tests/test_weather.py
 import pytest
-from src.weather import format_weather_summary
+from weather import format_weather_summary
 
 def test_format_weather_summary_basic():
     sample = {

@@ -7,7 +7,7 @@ from io import BytesIO
 from pypdf import PdfReader
 from openai import AzureOpenAI
 from uuid import uuid4
-from src.qdrant_utils import get_qdrant_client, create_collection_if_not_exists, upsert_documents, query_similar
+from qdrant_utils import get_qdrant_client, create_collection_if_not_exists, upsert_documents, query_similar
 from dotenv import load_dotenv
 
 load_dotenv()

@@ -1,4 +1,4 @@
-from src.graph import build_pipeline_graph
+from graph import build_pipeline_graph
 
 def test_graph_weather_path():
     graph = build_pipeline_graph(openweather_key="test")
