@@ -13,8 +13,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 COLLECTION_NAME = os.getenv("QDRANT_COLLECTION", "pdf_docs")
-openai_api_key=os.getenv("OPENAI_API_KEY")
+azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT")
+api_key=os.getenv("AZURE_OPENAI_KEY")
 qdrant_api_key=os.getenv("QDRANT_API_KEY")
+api_version=os.getenv("")
+model_name=os.getenv("EMBEDDING_MODEL_NAME")
 
 
 class AzureEmbeddingWrapper:
@@ -67,23 +70,6 @@ def chunk_text(text: str, chunk_size: int = 1000, chunk_overlap: int = 200) -> L
     docs = splitter.create_documents([text])
     return [d.page_content for d in docs]
 
-def get_embeddings(text_to_embed):
-    try:
-        cilent=AzureOpenAI(
-            azure_endpoint='https://bpost-azure-bods-dasinco.openai.azure.com/',
-            api_key='acebef8cb1f04c1c9b0123a61082732c',
-            api_version='2024-02-01'
-        )
-        response=cilent.embeddings.create(
-            model="text-embedding-ada-002",
-            input=text_to_embed
-        )
-        if isinstance(text_to_embed, list):
-            return [item.embedding for item in response.data]
-        embedding = response.data[0].embedding
-        return embedding
-    except (openai.RateLimitError) as e:
-        print(e)
 
 def build_embeddings_and_upsert(pdf_input, qdrant_url: str = None):
     """
@@ -112,10 +98,10 @@ def build_embeddings_and_upsert(pdf_input, qdrant_url: str = None):
 
     # --- Embeddings ---
     embeddings = AzureEmbeddingWrapper(
-        azure_endpoint='https://bpost-azure-bods-dasinco.openai.azure.com/',
-        api_key='acebef8cb1f04c1c9b0123a61082732c',
+        azure_endpoint=azure_endpoint,
+        api_key=api_key,
         api_version="2024-02-01",
-        model_name="text-embedding-ada-002"
+        model_name=model_name
     )
 
     vectors = embeddings.embed_documents(chunks)
@@ -140,10 +126,10 @@ def query_rag(query: str, top_k: int = 4):
     Query Qdrant vector DB and return top relevant chunks.
     """
     embeddings = AzureEmbeddingWrapper(
-    azure_endpoint='https://bpost-azure-bods-dasinco.openai.azure.com/',
-    api_key='acebef8cb1f04c1c9b0123a61082732c',
+    azure_endpoint=azure_endpoint,
+    api_key=api_key,
     api_version='2024-02-01',
-    model_name="text-embedding-ada-002"
+    model_name=model_name
 )
     # embeddings = OpenAIEmbeddings()
     q_vec = embeddings.embed_query(query)
@@ -176,6 +162,3 @@ def query_rag(query: str, top_k: int = 4):
 
     print("\nFINAL CONTEXTS:", contexts)
     return contexts
-
-# print(build_embeddings_and_upsert(r'C:\Users\guruj\Documents\langgraph-weather-rag\sample_data\Geography_of_India.pdf'))
-# query_rag("Biodiversity in india")
