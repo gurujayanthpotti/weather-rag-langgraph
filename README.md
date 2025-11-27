@@ -82,13 +82,15 @@ pip install -r requirements.txt
 streamlit run src/streamlit_app.py
 
 ---
-### LangSmith logs/screenshots
+## LangSmith logs/screenshots
 
 <img width="1100" height="558" alt="image" src="https://github.com/user-attachments/assets/f885b0fd-43e5-4cfd-a71b-1e8e9fadefe3" />
 
+---
+
 <img width="1100" height="561" alt="image" src="https://github.com/user-attachments/assets/4685524b-f0ab-418a-a494-63c25008563b" />
 
- ###Comparing results
+ ### Comparing results
 
  <img width="1100" height="561" alt="image" src="https://github.com/user-attachments/assets/f23eb0c5-6bef-4683-8162-371ba46c6d32" />
 
@@ -97,10 +99,20 @@ streamlit run src/streamlit_app.py
 
 ---
 
-### Streamlit app screenshots
+## Streamlit app screenshots
+
 <img width="2859" height="1524" alt="image" src="https://github.com/user-attachments/assets/b6eb07b7-3e6c-44b3-93ef-70d004395655" />
-### Response from chatbot
+
+### PDF file upload
+
+<img width="2879" height="1612" alt="image" src="https://github.com/user-attachments/assets/2984e448-5170-474d-8d25-5ed3cc67434c" />
+
+### Response from chatbot for weather node
+
 <img width="2879" height="1693" alt="image" src="https://github.com/user-attachments/assets/db6c4e90-cd9a-4a55-8a1d-8cfe03023c68" />
 
+### Response from chatbot for pdf rag node
+
+<img width="2879" height="1646" alt="image" src="https://github.com/user-attachments/assets/4f3744f3-e550-4e4f-a73c-111f89be2739" />
 
 
