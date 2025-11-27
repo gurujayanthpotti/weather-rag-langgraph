@@ -1,0 +1,15 @@
+langchain>=0.0.200            # adjust to your compatible version
+openai                        # or the LLM provider you use
+qdrant-client
+requests
+pypdf                          # for extracting pdf text (or PyPDF2)
+sentence-transformers         # if you want local embeddings (optional)
+pytest
+pytest-mock
+streamlit
+langgraph                # placeholder; replace with actual package name if different
+langsmith                # placeholder; replace with actual package name if different
+python-dotenv
+qdrant-client
+langchain-core
+langchain-openai
