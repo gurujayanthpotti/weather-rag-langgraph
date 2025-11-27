@@ -1,4 +1,3 @@
-# weather-rag-langgraph
 # 🌦️📚 LangGraph Weather + PDF RAG Pipeline  
 ## AI Engineer Assignment — Complete Implementation
 
