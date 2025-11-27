@@ -8,6 +8,11 @@ This project demonstrates a complete **AI pipeline** built using **LangChain**, 
 
 A **LangGraph decision node** chooses which branch to execute based on the user query.
 
+## 🔗 Live Deployment & Demo
+
+- **Deployed Streamlit App:** [Open in Browser](https://weather-rag-langgraph-nxjmfm7guy2ethwstdy4eh.streamlit.app/)  
+- **Demo Video (Loom):** [Watch Demo](https://www.loom.com/share/04c805ac18944ab7859fd7ad80dc7cfb)
+
 ---
 
 ## 🚀 Features
@@ -73,9 +78,7 @@ pip install -r requirements.txt
 --- 
 
 ### Running the Pipeline
-#### Start Streamlit UI
+### Start Streamlit UI
 streamlit run src/streamlit_app.py
 
-### 🎥 Streamlit Demo Video
-### 📌 Loom demo link (replace with your actual link):
-https://www.loom.com/share/04c805ac18944ab7859fd7ad80dc7cfb
+
