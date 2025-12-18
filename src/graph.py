@@ -1,5 +1,6 @@
 from langgraph.graph import END, StateGraph
 from typing import TypedDict
+from langsmith import traceable
 from pipeline import decide_action, weather_node, rag_node
 
 # Correct State definition
@@ -9,12 +10,20 @@ class PipelineState(TypedDict):
     raw: dict | list | None
     summary: str | None
 
+@traceable(name="Greeting Node")
+def greeting_node(state):
+    return {
+        "action": "greeting",
+        "raw": None,
+        "summary": "Hi! How may I assist you today?"
+    }
 
 def build_pipeline_graph(openweather_key: str = None):
     graph = StateGraph(PipelineState)
 
     # Nodes
     graph.add_node("decider", lambda s: {"action": decide_action(s["user_input"])})
+    graph.add_node("greeting",greeting_node)
     graph.add_node("weather", lambda s: weather_node(s, openweather_key=openweather_key))
     graph.add_node("pdf_rag", rag_node)
 
@@ -25,11 +34,13 @@ def build_pipeline_graph(openweather_key: str = None):
         "decider",
         lambda state: state["action"],
         {
+            "greeting": "greeting",
             "weather": "weather",
             "pdf_rag": "pdf_rag"
         }
     )
 
+    graph.add_edge("greeting", END)
     graph.add_edge("weather", END)
     graph.add_edge("pdf_rag", END)
 

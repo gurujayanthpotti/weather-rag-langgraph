@@ -2,19 +2,24 @@
 from typing import Dict, List
 from weather import fetch_weather, format_weather_summary
 from pdf_rag import query_rag
+from langsmith import traceable
 from llm_utils import summarize_with_llm
 
 
 def decide_action(user_input: str) -> str:
-    """
-    Simple routing logic: weather vs RAG.
-    LangGraph will call this node to decide the next move.
-    """
-    lower = user_input.lower()
+    lower = user_input.lower().strip()
+
+    greeting_triggers = ["hi", "hello", "hey", "good morning", "good evening"]
+
+    if any(lower == g or lower.startswith(g + " ") for g in greeting_triggers):
+        return "greeting"
+
     weather_triggers = ["weather", "temperature", "rain", "sunny", "forecast", "humidity"]
 
-    return "weather" if any(tok in lower for tok in weather_triggers) else "pdf_rag"
+    if any(tok in lower for tok in weather_triggers):
+        return "weather"
 
+    return "pdf_rag"
 
 def build_guardrailed_prompt(contexts: List[str], user_question: str) -> str:
     """
@@ -62,11 +67,8 @@ def extract_city(txt: str) -> str:
     tokens = txt.strip().split()
     return tokens[-1].strip("?,.") if tokens else "London"
 
-
-# ----------------------------
 # Components used by LangGraph
-# ----------------------------
-
+@traceable(name="Weather Node")
 def weather_node(state: Dict, openweather_key: str = None) -> Dict:
     """
     LangGraph node: Calls weather API and formats it.
@@ -83,7 +85,7 @@ def weather_node(state: Dict, openweather_key: str = None) -> Dict:
         "summary": summary
     }
 
-
+@traceable(name="RAG Node")
 def rag_node(state: Dict) -> Dict:
     """
     LangGraph node: RAG retrieval + guardrailed LLM.
